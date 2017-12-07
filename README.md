@@ -1,7 +1,7 @@
 # Laravel Spam Protector
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
-[![Software License][ico-license]](LICENSE.md)
+[![Software License][ico-license]](LICENSE)
 [![Build Status][ico-travis]][link-travis]
 [![Total Downloads][ico-downloads]][link-downloads]
 
@@ -46,14 +46,14 @@ if(SpamProtector::isSpamEmail('john@example.com'))
 }
 ```
 
-## Change log
-
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
-
 ## Testing
 
 ``` bash
 $ composer test
+```
+or
+``` bash
+$ phpunit
 ```
 
 ## Security
@@ -67,7 +67,7 @@ If you discover any security related issues, please email johannmike.ebert@gmail
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+The MIT License (MIT). Please see [License File](LICENSE) for more information.
 
 [ico-version]: https://img.shields.io/packagist/v/johannebert/laravel-spam-protector.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
