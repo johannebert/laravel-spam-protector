@@ -71,11 +71,11 @@ The MIT License (MIT). Please see [License File](LICENSE) for more information.
 
 [ico-version]: https://img.shields.io/packagist/v/johannebert/laravel-spam-protector.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/JohannEbert/laravel-spam-protector/master.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/johannebert/laravel-spam-protector/master.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/johannebert/laravel-spam-protector.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/johannebert/laravel-spam-protector
-[link-travis]: https://travis-ci.org/JohannEbert/laravel-spam-protector
+[link-travis]: https://travis-ci.org/johannebert/laravel-spam-protector
 [link-downloads]: https://packagist.org/packages/johannebert/laravel-spam-protector
-[link-author]: https://github.com/JohannEbert
+[link-author]: https://github.com/johannebert
 [link-contributors]: ../../contributors
