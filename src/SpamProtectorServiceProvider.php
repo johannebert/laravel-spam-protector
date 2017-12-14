@@ -23,8 +23,6 @@ class SpamProtectorServiceProvider extends ServiceProvider
         $this->app->singleton('spam-protector', function ($app) {
             return new SpamProtector();
         });
-
-        $this->app->alias(SpamProtector::class, 'spam-protector');
     }
 
     /**

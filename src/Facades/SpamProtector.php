@@ -1,10 +1,10 @@
 <?php
 
-namespace JohannEbert\LaravelSpamProtector;
+namespace JohannEbert\LaravelSpamProtector\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class SpamProtectorFacade extends Facade
+class SpamProtector extends Facade
 {
     /**
      * Get the registered name of the component.

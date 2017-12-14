@@ -2,7 +2,7 @@
 
 namespace JohannEbert\LaravelSpamProtector\Tests;
 
-use JohannEbert\LaravelSpamProtector\SpamProtectorFacade as SpamProtector;
+use JohannEbert\LaravelSpamProtector\Facades\SpamProtector;
 
 class SpamProtectorTest extends TestCase
 {
