@@ -14,4 +14,17 @@ class TestCase extends \Orchestra\Testbench\TestCase
     {
         return ['JohannEbert\LaravelSpamProtector\SpamProtectorServiceProvider'];
     }
+
+    /**
+     * Load package alias
+     *
+     * @param  \Illuminate\Foundation\Application $app
+     * @return array
+     */
+    protected function getPackageAliases($app)
+    {
+        return [
+            'SpamProtector' => 'JohannEbert\LaravelSpamProtector\Facades\SpamProtector',
+        ];
+    }
 }
