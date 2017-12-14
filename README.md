@@ -23,7 +23,7 @@ JohannEbert\LaravelSpamProtector\SpamProtectorServiceProvider::class
 
 - and for aliases
 ```php
-'SpamProtector' => JohannEbert\LaravelSpamProtector\SpamProtectorFacade::class,
+'SpamProtector' => JohannEbert\LaravelSpamProtector\Facades\SpamProtector::class,
 ```
 
 ## Usage
