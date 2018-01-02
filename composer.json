@@ -47,6 +47,14 @@
     "extra": {
         "branch-alias": {
             "dev-master": "1.0-dev"
+        },
+        "laravel": {
+            "providers": [
+                "JohannEbert\\LaravelSpamProtector\\SpamProtectorServiceProvider"
+            ],
+            "aliases": {
+                "SpamProtector": "JohannEbert\\LaravelSpamProtector\\Facades\\SpamProtector"
+            }
         }
     },
     "config": {

@@ -15,6 +15,7 @@ Via Composer
 $ composer require johannebert/laravel-spam-protector
 ```
 
+> **Note**: If you are using Laravel 5.5, the next steps are unnecessary. Laravel Spam Protector supports Laravel [Package Discovery](https://laravel.com/docs/5.5/packages#package-discovery).
 
 - After updating composer, add the ServiceProvider to the providers array in `config/app.php`
 ```php
