@@ -47,10 +47,10 @@ class SpamProtector
         $type = trim(strtolower($type));
 
         if (! in_array($type, ['ip', 'email', 'username'])) {
-            throw new \InvalidArgumentException('Type of ' . $type . ' is not supported by the API');
+            throw new \InvalidArgumentException('Type of '.$type.' is not supported by the API');
         }
 
-        $url = $this->apiUrl . '?' . $type . '=' . urlencode($value) . '&f=json';
+        $url = $this->apiUrl.'?'.$type.'='.urlencode($value).'&f=json';
 
         return $url;
     }
@@ -154,6 +154,6 @@ class SpamProtector
      */
     public function setFrequency($frequency = 1)
     {
-        $this->frequency = (int)$frequency;
+        $this->frequency = (int) $frequency;
     }
 }
