@@ -26,7 +26,7 @@ class SpamProtector
      */
     public function __construct($frequency = null)
     {
-        if (! is_null($frequency)) {
+        if (!is_null($frequency)) {
             $this->frequency = $frequency;
         }
 
@@ -46,11 +46,11 @@ class SpamProtector
     {
         $type = trim(strtolower($type));
 
-        if (! in_array($type, ['ip', 'email', 'username'])) {
-            throw new \InvalidArgumentException('Type of '.$type.' is not supported by the API');
+        if (!in_array($type, ['ip', 'email', 'username'])) {
+            throw new \InvalidArgumentException('Type of ' . $type . ' is not supported by the API');
         }
 
-        $url = $this->apiUrl.'?'.$type.'='.urlencode($value).'&f=json';
+        $url = $this->apiUrl . '?' . $type . '=' . urlencode($value) . '&f=json';
 
         return $url;
     }
@@ -90,16 +90,25 @@ class SpamProtector
         $fullApiUrl = $this->buildUrl($type, $value);
         $response = $this->sendRequest($fullApiUrl);
 
-        if (! $response) {
-            throw new \Exception('API Check Unsuccessful');
+        if (!$response) {
+            throw new \Exception('API Check Unsuccessful on url: ' . $fullApiUrl);
         }
 
         $result = json_decode($response);
 
-        if ($result->success == 1) {
-            if ($result->{$type}->appears == 1) {
-                return $result->{$type}->frequency >= $this->frequency ? true : false;
-            }
+        // check format
+        if (!isset($result->success) ||
+            !isset($result->{$type}->appears) ||
+            !isset($result->{$type}->frequency)
+        ) {
+            throw new \Exception('Response has wrong format: ' . $response);
+        }
+
+
+        // check success
+        if ($result->success == 1 && $result->{$type}->appears == 1) {
+            // check frequency
+            return $result->{$type}->frequency >= $this->frequency;
         }
 
         return false;
@@ -154,6 +163,6 @@ class SpamProtector
      */
     public function setFrequency($frequency = 1)
     {
-        $this->frequency = (int) $frequency;
+        $this->frequency = (int)$frequency;
     }
 }
