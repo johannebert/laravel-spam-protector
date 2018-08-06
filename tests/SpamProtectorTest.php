@@ -61,7 +61,7 @@ class SpamProtectorTest extends TestCase
      */
     public function it_checks_registered_ip_for_spam()
     {
-        $result = SpamProtector::isSpamIp('179.219.194.239');
+        $result = SpamProtector::isSpamIp('1.2.3.4');
 
         $this->assertTrue($result);
     }
@@ -73,7 +73,7 @@ class SpamProtectorTest extends TestCase
      */
     public function it_checks_registered_username_for_spam()
     {
-        $result = SpamProtector::isSpamUsername('Lin Wei');
+        $result = SpamProtector::isSpamUsername('xrumer');
 
         $this->assertTrue($result);
     }
