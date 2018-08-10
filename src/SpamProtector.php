@@ -102,12 +102,11 @@ class SpamProtector
             ! isset($result->{$type}->frequency)
         ) {
             logger($response);
-            if(is_array($response)){
+            if (is_array($response)) {
                 $response = implode(', ', $response);
             }
             throw new \Exception('Response has wrong format: '.$response);
         }
-
 
         // check success
         if ($result->success == 1 && $result->{$type}->appears == 1) {
