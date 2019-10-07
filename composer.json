@@ -1,9 +1,9 @@
 {
-    "name": "ricardoboss/laravel-spam-protector",
+    "name": "johannebert/laravel-spam-protector",
     "type": "library",
     "description": "Laravel Spam Protector class to check ip, name, email for spam that uses the StopForumSpam Api https://www.stopforumspam.com/usage",
     "keywords": [
-        "ricardoboss",
+        "johannebert",
         "laravel-spam-protector",
         "StopForumSpam",
         "stop forum spam api",
@@ -11,7 +11,7 @@
         "protection",
         "laravel"
     ],
-    "homepage": "https://github.com/ricardoboss/laravel-spam-protector",
+    "homepage": "https://github.com/johannebert/laravel-spam-protector",
     "license": "MIT",
     "authors": [
         {
