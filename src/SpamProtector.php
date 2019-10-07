@@ -2,6 +2,9 @@
 
 namespace JohannEbert\LaravelSpamProtector;
 
+use Exception;
+use InvalidArgumentException;
+
 class SpamProtector
 {
     /**
@@ -26,12 +29,64 @@ class SpamProtector
      */
     public function __construct($frequency = null)
     {
-        if (! is_null($frequency)) {
+        if (!is_null($frequency)) {
             $this->frequency = $frequency;
         }
 
         // Check if curl is enabled
         $this->curlEnabled = function_exists('curl_version');
+    }
+
+    /**
+     * Checked the StopForumSpam API for email and return true if it is registered as a spam.
+     *
+     * @param $email
+     * @return bool
+     * @throws Exception
+     */
+    public function isSpamEmail($email)
+    {
+        return $this->isSpam('email', $email);
+    }
+
+    /**
+     * Checked the StopForumSpam API for given type email|ip|username and return true if it is registered as a spam.
+     *
+     * @param string $type
+     * @param        $value
+     * @return bool
+     * @throws Exception
+     */
+    public function isSpam($type = 'email', $value)
+    {
+        $fullApiUrl = $this->buildUrl($type, $value);
+        $response = $this->sendRequest($fullApiUrl);
+
+        if (!$response) {
+            throw new Exception('API Check Unsuccessful on url: ' . $fullApiUrl);
+        }
+
+        $result = json_decode($response);
+
+        // check format
+        if (!isset($result->success) ||
+            !isset($result->{$type}->appears) ||
+            !isset($result->{$type}->frequency)
+        ) {
+            logger($response);
+            if (is_array($response)) {
+                $response = implode(', ', $response);
+            }
+            throw new Exception('Response has wrong format: ' . $response);
+        }
+
+        // check success
+        if ($result->success == 1 && $result->{$type}->appears == 1) {
+            // check frequency
+            return $result->{$type}->frequency >= $this->frequency;
+        }
+
+        return false;
     }
 
     /**
@@ -46,11 +101,11 @@ class SpamProtector
     {
         $type = trim(strtolower($type));
 
-        if (! in_array($type, ['ip', 'email', 'username'])) {
-            throw new \InvalidArgumentException('Type of '.$type.' is not supported by the API');
+        if (!in_array($type, ['ip', 'email', 'username'])) {
+            throw new InvalidArgumentException('Type of ' . $type . ' is not supported by the API');
         }
 
-        $url = $this->apiUrl.'?'.$type.'='.urlencode($value).'&f=json';
+        $url = $this->apiUrl . '?' . $type . '=' . urlencode($value) . '&f=json';
 
         return $url;
     }
@@ -78,63 +133,11 @@ class SpamProtector
     }
 
     /**
-     * Checked the StopForumSpam API for given type email|ip|username and return true if it is registered as a spam.
-     *
-     * @param string $type
-     * @param        $value
-     * @return bool
-     * @throws \Exception
-     */
-    public function isSpam($type = 'email', $value)
-    {
-        $fullApiUrl = $this->buildUrl($type, $value);
-        $response = $this->sendRequest($fullApiUrl);
-
-        if (! $response) {
-            throw new \Exception('API Check Unsuccessful on url: '.$fullApiUrl);
-        }
-
-        $result = json_decode($response);
-
-        // check format
-        if (! isset($result->success) ||
-            ! isset($result->{$type}->appears) ||
-            ! isset($result->{$type}->frequency)
-        ) {
-            logger($response);
-            if (is_array($response)) {
-                $response = implode(', ', $response);
-            }
-            throw new \Exception('Response has wrong format: '.$response);
-        }
-
-        // check success
-        if ($result->success == 1 && $result->{$type}->appears == 1) {
-            // check frequency
-            return $result->{$type}->frequency >= $this->frequency;
-        }
-
-        return false;
-    }
-
-    /**
-     * Checked the StopForumSpam API for email and return true if it is registered as a spam.
-     *
-     * @param $email
-     * @return bool
-     * @throws \Exception
-     */
-    public function isSpamEmail($email)
-    {
-        return $this->isSpam('email', $email);
-    }
-
-    /**
      * Checked the StopForumSpam API for IP address and return true if it is registered as a spam.
      *
      * @param $ip
      * @return bool
-     * @throws \Exception
+     * @throws Exception
      */
     public function isSpamIp($ip)
     {
@@ -146,7 +149,7 @@ class SpamProtector
      *
      * @param $username
      * @return bool
-     * @throws \Exception
+     * @throws Exception
      */
     public function isSpamUsername($username)
     {
@@ -166,6 +169,6 @@ class SpamProtector
      */
     public function setFrequency($frequency = 1)
     {
-        $this->frequency = (int) $frequency;
+        $this->frequency = (int)$frequency;
     }
 }

@@ -20,7 +20,7 @@ class SpamProtectorServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('spam-protector', function ($app) {
+        $this->app->singleton('spam-protector', function () {
             return new SpamProtector();
         });
 

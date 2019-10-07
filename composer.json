@@ -1,9 +1,9 @@
 {
-    "name": "johannebert/laravel-spam-protector",
+    "name": "ricardoboss/laravel-spam-protector",
     "type": "library",
     "description": "Laravel Spam Protector class to check ip, name, email for spam that uses the StopForumSpam Api https://www.stopforumspam.com/usage",
     "keywords": [
-        "johannebert",
+        "ricardoboss",
         "laravel-spam-protector",
         "StopForumSpam",
         "stop forum spam api",
@@ -11,7 +11,7 @@
         "protection",
         "laravel"
     ],
-    "homepage": "https://github.com/johannebert/laravel-spam-protector",
+    "homepage": "https://github.com/ricardoboss/laravel-spam-protector",
     "license": "MIT",
     "authors": [
         {
@@ -19,15 +19,23 @@
             "email": "johannmike.ebert@gmail.com",
             "homepage": "https://github.com/johannebert",
             "role": "Developer"
+        },
+        {
+            "name": "Ricardo Boss",
+            "email": "contact@ricardoboss.de",
+            "homepage": "https://ricardoboss.de",
+            "role": "Developer"
         }
     ],
     "require": {
-        "illuminate/support": "~5.1",
-        "php" : "~7.0"
+        "illuminate/support": "^6.0",
+        "php": "^7.2",
+        "ext-curl": "*",
+        "ext-json": "*"
     },
     "require-dev": {
-        "orchestra/testbench": "^3.5",
-        "phpunit/phpunit": "^6.5"
+        "orchestra/testbench": "^4.1",
+        "phpunit/phpunit": "^8.0"
     },
     "autoload": {
         "psr-4": {
