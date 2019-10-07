@@ -29,7 +29,7 @@ class SpamProtector
      */
     public function __construct($frequency = null)
     {
-        if (!is_null($frequency)) {
+        if (! is_null($frequency)) {
             $this->frequency = $frequency;
         }
 
@@ -62,22 +62,22 @@ class SpamProtector
         $fullApiUrl = $this->buildUrl($type, $value);
         $response = $this->sendRequest($fullApiUrl);
 
-        if (!$response) {
+        if (! $response) {
             throw new Exception('API Check Unsuccessful on url: ' . $fullApiUrl);
         }
 
         $result = json_decode($response);
 
         // check format
-        if (!isset($result->success) ||
-            !isset($result->{$type}->appears) ||
-            !isset($result->{$type}->frequency)
+        if (! isset($result->success) ||
+            ! isset($result->{$type}->appears) ||
+            ! isset($result->{$type}->frequency)
         ) {
             logger($response);
             if (is_array($response)) {
                 $response = implode(', ', $response);
             }
-            throw new Exception('Response has wrong format: ' . $response);
+            throw new Exception('Response has wrong format: '.$response);
         }
 
         // check success
@@ -101,11 +101,11 @@ class SpamProtector
     {
         $type = trim(strtolower($type));
 
-        if (!in_array($type, ['ip', 'email', 'username'])) {
-            throw new InvalidArgumentException('Type of ' . $type . ' is not supported by the API');
+        if (! in_array($type, ['ip', 'email', 'username'])) {
+            throw new InvalidArgumentException('Type of '.$type.' is not supported by the API');
         }
 
-        $url = $this->apiUrl . '?' . $type . '=' . urlencode($value) . '&f=json';
+        $url = $this->apiUrl.'?'.$type.'='.urlencode($value).'&f=json';
 
         return $url;
     }
@@ -169,6 +169,6 @@ class SpamProtector
      */
     public function setFrequency($frequency = 1)
     {
-        $this->frequency = (int)$frequency;
+        $this->frequency = (int) $frequency;
     }
 }
