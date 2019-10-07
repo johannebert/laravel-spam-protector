@@ -63,7 +63,7 @@ class SpamProtector
         $response = $this->sendRequest($fullApiUrl);
 
         if (! $response) {
-            throw new Exception('API Check Unsuccessful on url: ' . $fullApiUrl);
+            throw new Exception('API Check Unsuccessful on url: '.$fullApiUrl);
         }
 
         $result = json_decode($response);
