@@ -49,7 +49,7 @@ class SpamProtectorTest extends TestCase
      */
     public function it_checks_registered_email_for_spam()
     {
-        $result = SpamProtector::isSpamEmail('duete@gmx.com');
+        $result = SpamProtector::isSpamEmail('test@test.com');
 
         $this->assertTrue($result);
     }
@@ -73,7 +73,7 @@ class SpamProtectorTest extends TestCase
      */
     public function it_checks_registered_username_for_spam()
     {
-        $result = SpamProtector::isSpamUsername('xrumer');
+        $result = SpamProtector::isSpamUsername('test');
 
         $this->assertTrue($result);
     }

@@ -19,15 +19,23 @@
             "email": "johannmike.ebert@gmail.com",
             "homepage": "https://github.com/johannebert",
             "role": "Developer"
+        },
+        {
+            "name": "Ricardo Boss",
+            "email": "contact@ricardoboss.de",
+            "homepage": "https://ricardoboss.de",
+            "role": "Developer"
         }
     ],
     "require": {
-        "illuminate/support": "~5.1",
-        "php" : "~7.0"
+        "illuminate/support": "^6.0",
+        "php": "^7.2",
+        "ext-curl": "*",
+        "ext-json": "*"
     },
     "require-dev": {
-        "orchestra/testbench": "^3.5",
-        "phpunit/phpunit": "^6.5"
+        "orchestra/testbench": "^4.1",
+        "phpunit/phpunit": "^8.0"
     },
     "autoload": {
         "psr-4": {
