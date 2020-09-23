@@ -5,7 +5,7 @@ namespace JohannEbert\LaravelSpamProtector\Tests;
 class TestCase extends \Orchestra\Testbench\TestCase
 {
     /**
-     * Load package service provider
+     * Load package service provider.
      *
      * @param  \Illuminate\Foundation\Application $app
      * @return array|\JohannEbert\LaravelSpamProtector\SpamProtectorServiceProvider
@@ -16,7 +16,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
     }
 
     /**
-     * Load package alias
+     * Load package alias.
      *
      * @param  \Illuminate\Foundation\Application $app
      * @return array

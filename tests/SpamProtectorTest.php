@@ -7,7 +7,7 @@ use JohannEbert\LaravelSpamProtector\Facades\SpamProtector;
 class SpamProtectorTest extends TestCase
 {
     /**
-     * It checks the StopForumSpam API for spam with not registered email
+     * It checks the StopForumSpam API for spam with not registered email.
      *
      * @test
      */
@@ -19,7 +19,7 @@ class SpamProtectorTest extends TestCase
     }
 
     /**
-     * It checks the StopForumSpam API for spam with not registered ip
+     * It checks the StopForumSpam API for spam with not registered ip.
      *
      * @test
      */
@@ -31,7 +31,7 @@ class SpamProtectorTest extends TestCase
     }
 
     /**
-     * It checks the StopForumSpam API for spam with not registered username
+     * It checks the StopForumSpam API for spam with not registered username.
      *
      * @test
      */
@@ -43,7 +43,7 @@ class SpamProtectorTest extends TestCase
     }
 
     /**
-     * It checks the StopForumSpam API for spam with registered email
+     * It checks the StopForumSpam API for spam with registered email.
      *
      * @test
      */
@@ -55,7 +55,7 @@ class SpamProtectorTest extends TestCase
     }
 
     /**
-     * It checks the StopForumSpam API for spam with registered ip
+     * It checks the StopForumSpam API for spam with registered ip.
      *
      * @test
      */
@@ -67,7 +67,7 @@ class SpamProtectorTest extends TestCase
     }
 
     /**
-     * It checks the StopForumSpam API for spam with registered username
+     * It checks the StopForumSpam API for spam with registered username.
      *
      * @test
      */
