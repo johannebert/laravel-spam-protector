@@ -57,7 +57,7 @@ class SpamProtector
      * @return bool
      * @throws Exception
      */
-    public function isSpam($type = 'email', $value)
+    public function isSpam($type, $value)
     {
         $fullApiUrl = $this->buildUrl($type, $value);
         $response = $this->sendRequest($fullApiUrl);
@@ -97,7 +97,7 @@ class SpamProtector
      * @param        $value
      * @return string
      */
-    protected function buildUrl($type = 'email', $value)
+    protected function buildUrl($type, $value)
     {
         $type = trim(strtolower($type));
 
