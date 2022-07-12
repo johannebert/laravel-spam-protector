@@ -7,7 +7,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
     /**
      * Load package service provider.
      *
-     * @param  \Illuminate\Foundation\Application $app
+     * @param  \Illuminate\Foundation\Application  $app
      * @return array|\JohannEbert\LaravelSpamProtector\SpamProtectorServiceProvider
      */
     protected function getPackageProviders($app)
@@ -18,7 +18,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
     /**
      * Load package alias.
      *
-     * @param  \Illuminate\Foundation\Application $app
+     * @param  \Illuminate\Foundation\Application  $app
      * @return array
      */
     protected function getPackageAliases($app)
