@@ -25,7 +25,7 @@ class SpamProtector
     /**
      * Create a new SpamProtector Instance.
      *
-     * @param int $frequency
+     * @param  int  $frequency
      */
     public function __construct($frequency = null)
     {
@@ -42,6 +42,7 @@ class SpamProtector
      *
      * @param $email
      * @return bool
+     *
      * @throws Exception
      */
     public function isSpamEmail($email)
@@ -52,9 +53,10 @@ class SpamProtector
     /**
      * Checked the StopForumSpam API for given type email|ip|username and return true if it is registered as a spam.
      *
-     * @param string $type
-     * @param        $value
+     * @param  string  $type
+     * @param  $value
      * @return bool
+     *
      * @throws Exception
      */
     public function isSpam($type, $value)
@@ -93,8 +95,8 @@ class SpamProtector
      * Builds the URL for the spam check with given type email|ip|username and value for it,
      * return full api url.
      *
-     * @param string $type
-     * @param        $value
+     * @param  string  $type
+     * @param  $value
      * @return string
      */
     protected function buildUrl($type, $value)
@@ -137,6 +139,7 @@ class SpamProtector
      *
      * @param $ip
      * @return bool
+     *
      * @throws Exception
      */
     public function isSpamIp($ip)
@@ -149,6 +152,7 @@ class SpamProtector
      *
      * @param $username
      * @return bool
+     *
      * @throws Exception
      */
     public function isSpamUsername($username)
@@ -165,7 +169,7 @@ class SpamProtector
     }
 
     /**
-     * @param int $frequency
+     * @param  int  $frequency
      */
     public function setFrequency($frequency = 1)
     {
