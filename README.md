@@ -59,11 +59,11 @@ $ phpunit
 
 ## Security
 
-If you discover any security related issues, please email johannmike.ebert@gmail.com instead of using the issue tracker.
+If you discover any security related issues, please email johann.ebert@gmail.com instead of using the issue tracker.
 
 ## Credits
 
-- [Johann-Mike Ebert][link-author]
+- [Johann Ebert][link-author]
 - [All Contributors][link-contributors]
 
 ## License
