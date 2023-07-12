@@ -38,7 +38,7 @@ if($spamProtector->isSpamEmail('john@example.com'))
 }
 ```
 
-## Usage Fasade
+## Usage Facade
 
 ``` php
 if(SpamProtector::isSpamEmail('john@example.com'))
